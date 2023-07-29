@@ -1,3 +1,4 @@
 .env
 balls
 nuh uh
+venv/**/*
