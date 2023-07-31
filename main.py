@@ -21,9 +21,9 @@ skill_issue_rep = [
   "Is that skill issue I'm hearing?", "skill issue, git gud"
 ]
 # Lists for words to trigger the deez nuts joke
-dznuts = ["these", "These", "deez"]
-sukon = ["suck", "Suck", "sucks", "Sucks", "SUCK", "SUCKS", "sugon", "Sugon", "SUGON","sugoi","Sugoi","SUGOI","Sawcon","sawcon","SAWCON"]
-wend = ["wendy's","Wendy's","wendys","Wendys","WENDY'S","WENDYS","when these","When these","WHEN THESE","when These","When These"]
+dznuts = ["these", "deez"]
+sukon = ["suck", "sucks", "sugon", "sugoi", "sawcon"]
+wend = ["wendy's", "wendys", "when these"]
 
 # Print when the bot gets start up
 @bot.event
@@ -37,7 +37,7 @@ async def on_message(message):
   if message.author == bot.user:
     return
 
-  msg = message.content
+  msg = message.content.lower()
   chan = message.channel
 
   # skill issue things
@@ -60,7 +60,7 @@ async def on_member_join(member):
   # if member.guild.id != Guild.id: 
   #   return 
   channel = bot.get_channel(846667064663736332)
-  await channel.send("{member.mention} is here for some reasons idk lol")
+  await channel.send(f"{member.mention} is here for some reasons idk lol")
 
 # d20 command function to do a cool d20 rolls
 @bot.command()
