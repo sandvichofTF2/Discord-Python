@@ -7,6 +7,7 @@ from webserver import webserver
 intents = discord.Intents.default()
 intents.message_content = True
 intents.reactions = True
+intents.members = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -53,13 +54,19 @@ async def on_message(message):
   
   await bot.process_commands(message)
 
+@bot.event
+async def on_member_join(member):
+  print(member.name + "joined")
+  # if member.guild.id != Guild.id: 
+  #   return 
+  channel = bot.get_channel(846667064663736332)
+  await channel.send("{member.mention} is here for some reasons idk lol")
+
 # d20 command function to do a cool d20 rolls
 @bot.command()
 async def d20(ctx):
   print("d20")
-  embed = discord.Embed(title="Your Roll is: ",
-                        description=(random.randint(1, 20)),
-                        color=(0xF85252))
+  embed = discord.Embed(title="Your Roll is: ",description=(random.randint(1, 20)),color=(0xF85252))
   await ctx.send(embed=embed)
 
 
