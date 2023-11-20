@@ -13,7 +13,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 # I thought it would be funny if i add a function to call out skill issue whenever someone complain
 skill_issue_det = [
-  "I fucked up", "i fucked up", "cant", "ah fuck", "WHY", "FUCK"
+  "I fucked up", "i fucked up", "cant", "ah fuck", "why", "FUCK"
 ]
 
 skill_issue_rep = [
